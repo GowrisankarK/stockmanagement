@@ -34,10 +34,6 @@ public class StockManagementController {
 	 */
 	@GetMapping("/stocks")
     public List<StockDetail> getAllStocks() {
-		List<StockDetail> demo=stockRepository.findAll();
-		demo.stream().forEach(action->{
-			System.out.println(action.toString());
-		});
         return stockRepository.findAll();
     }
 	
