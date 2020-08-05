@@ -55,7 +55,7 @@ public class StockManagementController {
 	 * createStockDetail is used to create new stock.
 	 * 
 	 * @param stockDetail
-	 * @return
+	 * @return StockDetail
 	 */
 	@PostMapping("/insert/stocks")
     public StockDetail createStockDetail(@RequestBody StockDetail stockDetail) {
@@ -63,11 +63,22 @@ public class StockManagementController {
     }
 
 	/**
+	 * createStockDetailList is used to create a list of new stocks.
+	 * 
+	 * @param stockDetailList
+	 * @return List<StockDetail>
+	 */
+	@PostMapping("/insert/listofstocks")
+    public List<StockDetail> createStockDetailList(@RequestBody List<StockDetail> stockDetailList) {
+        return stockRepository.saveAll(stockDetailList);
+    }
+
+	/**
 	 * updateStockDetail is used to update Detail based on StockId.
 	 * 
 	 * @param stockId
 	 * @param stockDetail
-	 * @return
+	 * @return ResponseEntity<StockDetail>
 	 * @throws ResourceNotFoundException
 	 */
     @PutMapping("/update/stocks/{id}")
